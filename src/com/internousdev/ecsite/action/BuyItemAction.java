@@ -1,5 +1,6 @@
 package com.internousdev.ecsite.action;
 
+import java.util.Collection;
 import java.util.Map;
 
 import org.apache.struts2.interceptor.SessionAware;
@@ -13,19 +14,17 @@ public class BuyItemAction extends ActionSupport implements SessionAware {
 	private String pay;
 	private String itemName;
 	private String itemPrice;
-//	private  id;
+	private String id;
+
+	private Collection<String> checkList;
 
 	BuyItemCompleteDAO buyItemCompleteDAO = new BuyItemCompleteDAO();
 
 	public String execute() {
 		String result = SUCCESS;
 
-//		if(id == 0) {
-//			return result;
-//		}
+		System.out.println(id);
 
-//		String btnId = request.getParameter("id");
-		System.out.println(count);
 		session.put("count", count);
 		count = String.valueOf((count.split(", ",0))[0]);
 		int intCount = Integer.parseInt(count);
@@ -87,12 +86,12 @@ public class BuyItemAction extends ActionSupport implements SessionAware {
 		return pay;
 	}
 
-//	public int getId() {
-//		return id;
-//	}
-//
-//	public void setId(int id) {
-//		this.id = id;
-//	}
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
 
 }
